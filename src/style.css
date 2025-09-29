@@ -1,0 +1,180 @@
+/* Reset básico e fonte */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Press Start 2P', sans-serif; /* Fonte estilo pixel art */
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Importa a fonte do Google Fonts (adicione no topo do CSS) */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* --- Estrutura da Pokédex --- */
+.pokedex {
+  width: 350px;
+  height: 550px;
+  background-color: #d12a2f; /* Vermelho Pokédex */
+  border-radius: 20px;
+  border: 3px solid #8b1c1f;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(0,0,0,0.3);
+}
+
+.pokedex-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pokedex-light-container {
+  display: flex;
+  gap: 8px;
+}
+
+.pokedex-light {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: #333;
+}
+
+.pokedex-light.big-light {
+  width: 50px;
+  height: 50px;
+  background-color: #33aaff; /* Azul claro */
+  box-shadow: 0 0 10px #33aaff, inset 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.pokedex-light.red-light { background-color: #ff3333; }
+.pokedex-light.yellow-light { background-color: #ffff33; }
+.pokedex-light.green-light { background-color: #33ff33; }
+
+/* --- Tela da Pokédex --- */
+#pokemonResultContainer {
+  flex-grow: 1;
+  background-color: #222;
+  border-radius: 10px;
+  padding: 10px;
+  border: 3px solid #8b1c1f;
+}
+
+.pokedex-screen-placeholder, .pokedex-screen.loading, .pokedex-screen.error {
+  background-color: #90d4a7; /* Tela verde clássica */
+  color: #333;
+  height: 100%;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.pokedex-screen {
+  background-color: #90d4a7; /* Tela verde clássica */
+  height: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.pokemon-info-header, .pokemon-info-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.pokemon-name { font-size: 1.2rem; }
+.pokemon-id { font-size: 1rem; }
+.pokemon-type {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 0.8rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.pokemon-image-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemon-image {
+  max-width: 100%;
+  max-height: 200px;
+  height: auto;
+  filter: drop-shadow(4px 4px 5px rgba(0,0,0,0.5));
+}
+
+
+/* --- Rodapé e Controles --- */
+.pokedex-footer {
+  margin-top: 20px;
+}
+
+.search-container {
+  display: flex;
+  gap: 10px;
+}
+
+#pokemonInput {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #333;
+  font-family: inherit;
+}
+
+#searchButton {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.8rem;
+  transition: background-color 0.2s;
+}
+
+#searchButton:hover {
+  background-color: #555;
+}
+
+
+/* --- Cores dos Tipos de Pokémon (Bônus) --- */
+.type-fire { background-color: #F08030; }
+.type-water { background-color: #6890F0; }
+.type-grass { background-color: #78C850; }
+.type-electric { background-color: #F8D030; }
+.type-psychic { background-color: #F85888; }
+.type-ice { background-color: #98D8D8; }
+.type-dragon { background-color: #7038F8; }
+.type-dark { background-color: #705848; }
+.type-fairy { background-color: #EE99AC; }
+.type-normal { background-color: #A8A878; }
+.type-fighting { background-color: #C03028; }
+.type-flying { background-color: #A890F0; }
+.type-poison { background-color: #A040A0; }
+.type-ground { background-color: #E0C068; }
+.type-rock { background-color: #B8A038; }
+.type-bug { background-color: #A8B820; }
+.type-ghost { background-color: #705898; }
+.type-steel { background-color: #B8B8D0; }
