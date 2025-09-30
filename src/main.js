@@ -1,8 +1,7 @@
 import './style.css';
-// 1. Importa a função que criamos no outro arquivo
 import { searchPokemon } from './functions/pokedex.js';
 
-// 2. Define o HTML da aplicação (isso não muda)
+// Define o HTML da aplicação
 document.querySelector('#app').innerHTML = `
   <div class="pokedex">
     <div class="pokedex-header">
@@ -29,18 +28,36 @@ document.querySelector('#app').innerHTML = `
   </div>
 `;
 
-// 3. Seleciona os elementos do DOM
+// Seleciona os elementos do DOM
 const input = document.querySelector('#pokemonInput');
 const button = document.querySelector('#searchButton');
 const resultContainer = document.querySelector('#pokemonResultContainer');
 
-// 4. Conecta os eventos à função importada, passando os elementos necessários
-button.addEventListener('click', () => {
+// Função para lidar com a busca
+function handleSearch() {
   searchPokemon(input, resultContainer);
-});
+}
 
+// Conecta os eventos à função de busca
+button.addEventListener('click', handleSearch);
 input.addEventListener('keyup', (event) => {
   if (event.key === 'Enter') {
-    searchPokemon(input, resultContainer);
+    handleSearch();
+  }
+});
+
+// --- LÓGICA DAS ABAS (TABS) ---
+// Adiciona um listener no container dos resultados para pegar cliques nos botões das abas
+resultContainer.addEventListener('click', (event) => {
+  if (event.target.matches('.tab-button')) {
+    const tabName = event.target.dataset.tab;
+
+    // Remove a classe 'active' de todos os botões e esconde todos os conteúdos
+    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+
+    // Adiciona 'active' ao botão clicado e mostra o conteúdo correspondente
+    event.target.classList.add('active');
+    document.getElementById(`${tabName}-content`).classList.remove('hidden');
   }
 });
