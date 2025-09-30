@@ -2,7 +2,8 @@
 
 Este projeto é uma implementação simples de uma Pokédex utilizando JavaScript puro (Vanilla JS) e o bundler Vite. Ele permite buscar informações básicas de Pokémon, como nome, ID, tipo e imagem, consumindo a API pública do Pokémon (PokeAPI).
 
-
+# URL para acesssar 
+https://pokedex-kohl-pi-36.vercel.app/
 
 ## Tecnologias Utilizadas
 
